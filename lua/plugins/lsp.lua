@@ -1,5 +1,17 @@
+--servers with default setups
+local def_servers = {
+                "lua_ls",
+                "rust_analyzer",
+                "pyright",
+                "bashls",
+}
+-- defining setup fn for tables with default setups
+    local lspsetup = function(server)
+        local lspconfig = require("lspconfig")
+        lspconfig[server].setup({})
+    end
 return {
-    "neovim/nvim-lspconfig",
+   "neovim/nvim-lspconfig",
     dependencies = {
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig",
@@ -8,16 +20,17 @@ return {
     config = function()
         require("mason").setup()
         require("mason-lspconfig").setup({
-            ensure_installed = {
-                "lua_ls",
-                "rust_analyzer",
-                "pyright",
-                "bashls",
-            },
+            -- here I am merging tables with default and non default setups
+---@diagnostic disable-next-line: deprecated
+                ensure_installed = {unpack(def_servers)}
         })
-        local lspconfig = require("lspconfig")
-        lspconfig.lua_ls.setup({})
-        lspconfig.rust_analyzer.setup({})
-        lspconfig.bashls.setup({})
+
+--calling the setup fn 
+        for _,server in ipairs(def_servers) do
+        lspsetup(server)
+        --lspconfig.lua_ls.setup({})
+        --lspconfig.rust_analyzer.setup({})
+        --lspconfig.bashls.setup({})
+        end
     end,
 }
