@@ -19,8 +19,9 @@ return {
 
     config = function()
         require("mason").setup()
+        local capabilities = require('cmp_nvim_lsp').default_capabilities()
         require("mason-lspconfig").setup({
-            -- here I am merging tables with default and non default setups
+            -- here I am merging tables with default and non default setups using unpack
 ---@diagnostic disable-next-line: deprecated
                 ensure_installed = {unpack(def_servers)}
         })
@@ -28,6 +29,7 @@ return {
 --calling the setup fn 
         for _,server in ipairs(def_servers) do
         lspsetup(server)
+        capabilities = capabilities
         --lspconfig.lua_ls.setup({})
         --lspconfig.rust_analyzer.setup({})
         --lspconfig.bashls.setup({})
