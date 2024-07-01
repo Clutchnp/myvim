@@ -5,6 +5,7 @@ return {
     "rafamadriz/friendly-snippets",
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
+    "hrsh7th/cmp-path"
   },
   config = function()
     local cmp = require 'cmp'
@@ -33,12 +34,9 @@ return {
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        --      { name = 'vsnip' }, -- For vsnip users.
-        { name = 'luasnip' }, -- For luasnip users.
-        -- { name = 'ultisnips' }, -- For ultisnips users.
-        -- { name = 'snippy' }, -- For snippy users.
-      }, {
-        { name = 'buffer' },
+        { name = 'luasnip'  }, -- For luasnip users.
+        { name = 'buffer'   },
+        { name = 'path'     }
       })
     })
   end
