@@ -10,7 +10,7 @@ local def_servers = {
 }
 --servers to be manually configured
 local man_servers = {
-  "rust_analyzer", "gopls",
+  "rust_analyzer", "gopls", "texlab",
 
 }
 --defining all server i.e. ones with defualt setup + manual setup eg. rust
@@ -81,6 +81,12 @@ return {
           },
         },
       },
+    })
+    lspconfig.texlab.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = {"tex", "plaintex", "bib","md"},
+      root_dir = util.root_pattern("vimrc"),
     })
   end,
 }
