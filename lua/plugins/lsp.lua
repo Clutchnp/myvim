@@ -7,11 +7,11 @@ local def_servers = {
   "lua_ls",
   "pyright",
   "bashls",
+
 }
 --servers to be manually configured
 local man_servers = {
-  "rust_analyzer", "gopls", "texlab",
-
+  "rust_analyzer", "gopls", "texlab","typst_lsp"
 }
 --defining all server i.e. ones with defualt setup + manual setup eg. rust
 ---@diagnostic disable-next-line: deprecated
@@ -85,8 +85,16 @@ return {
     lspconfig.texlab.setup({
       on_attach = on_attach,
       capabilities = capabilities,
-      filetypes = {"tex", "plaintex", "bib","md"},
-      root_dir = util.root_pattern("vimrc"),
+      filetypes = {"tex", "plaintex", "bib"},
     })
+
+    lspconfig.typst_lsp.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      root_dir = function(fname) return util.path.dirname(fname) end,
+      settings = {
+        experimentalFormatterMode = "on"
+      },
+      })
   end,
 }

@@ -12,6 +12,7 @@ return {
                null_ls.builtins.formatting.gofmt,
                null_ls.builtins.formatting.goimports_reviser,
                null_ls.builtins.formatting.golines,
+               null_ls.builtins.formatting.prettier,
                 }),
             },
         })

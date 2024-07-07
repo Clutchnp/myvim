@@ -6,8 +6,10 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "05a9ab28b53f71d1aece421ef32fee2cb857a843" },
   "friendly-snippets": { "branch": "main", "commit": "682157939e57bd6a2c86277dfd4d6fbfce63dbac" },
+  "img-clip.nvim": { "branch": "main", "commit": "1924e20ab19afec9779109d083b6e5f8bee8fb17" },
   "lazy.nvim": { "branch": "main", "commit": "60fe75c88db22025989600bb53dba247654d9ed5" },
   "lualine.nvim": { "branch": "master", "commit": "0a5a66803c7407767b799067986b4dc3036e1983" },
+  "luasnip-latex-snippets.nvim": { "branch": "main", "commit": "4b91f28d91979f61a3e8aef1cee5b7c7f2c7beb8" },
   "mason-lspconfig": { "branch": "main", "commit": "37a336b653f8594df75c827ed589f1c91d91ff6c" },
   "mason.nvim": { "branch": "main", "commit": "0950b15060067f752fde13a779a994f59516ce3d" },
   "none-ls.nvim": { "branch": "main", "commit": "0d1b3fa2ad0b371b94cb4b9a27ba6e5a1a915c91" },
@@ -21,5 +23,6 @@
   "obsidian.nvim": { "branch": "main", "commit": "f0bc495b4a3852a83b48636e9f564586f5e2d29e" },
   "plenary.nvim": { "branch": "master", "commit": "a3e3bc82a3f95c5ed0d7201546d5d2c19b20d683" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "6e51d7da30bd139a6950adf2a47fda6df9fa06d2" },
-  "telescope.nvim": { "branch": "master", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" }
+  "telescope.nvim": { "branch": "master", "commit": "6312868392331c9c0f22725041f1ec2bef57c751" },
+  "typst-preview.nvim": { "branch": "master", "commit": "15eaaffc0a2d8cd871f485f399d1d67ed3322a0b" }
 }

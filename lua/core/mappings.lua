@@ -8,6 +8,7 @@ vim.keymap.set('n', 'ff', function() vim.cmd('Telescope live_grep') end)
 vim.keymap.set('n', 'fl', function() vim.cmd('Telescope buffers') end)
 vim.keymap.set('n', 'fh', function() vim.cmd('Telescope help_tags') end)
 
+
 local augroup = vim.api.nvim_create_augroup
 local general = augroup('general', {})
 vim.api.nvim_create_autocmd('LspAttach', {
@@ -21,10 +22,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d>", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", '<F13>f', function() vim.lsp.buf.format() end, opts)
-    vim.keymap.set('x', '<F13>j', 'J')
-    vim.keymap.set('x', 'VJ', 'j')
-    vim.keymap.set('x', 'J', 'j')
     vim.keymap.set('n', 's', 'ci')
+    vim.keymap.set({'n','x'}, '<F13>j', 'J')
+    vim.keymap.set({'n','x'}, 'VJ', 'j')
+    vim.keymap.set({'n','x'}, 'J', 'j')
     vim.keymap.set('n', '<F13>', 'yi')
+    vim.keymap.set({"n", "v", "i"}, "<leader>p", function() vim.cmd("PasteImage") end, opts)
   end
 })

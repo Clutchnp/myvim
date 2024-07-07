@@ -5,11 +5,14 @@ return {
     "rafamadriz/friendly-snippets",
     'L3MON4D3/LuaSnip',
     'saadparwaiz1/cmp_luasnip',
-    "hrsh7th/cmp-path"
+    "hrsh7th/cmp-path",
   },
   config = function()
     local cmp = require 'cmp'
-    require("luasnip.loaders.from_vscode").lazy_load()
+
+-- Load VS Code-style snippets
+require("luasnip.loaders.from_vscode").lazy_load()
+
     cmp.setup({
       snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -34,9 +37,9 @@ return {
       }),
       sources = cmp.config.sources({
         { name = 'nvim_lsp' },
-        { name = 'luasnip'  }, -- For luasnip users.
-        { name = 'buffer'   },
-        { name = 'path'     }
+        { name = 'luasnip' },  -- For luasnip users.
+        { name = 'buffer' },
+        { name = 'path' },
       })
     })
   end
