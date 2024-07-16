@@ -25,6 +25,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>a', function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d>", function() vim.diagnostic.goto_prev() end, opts)
+    -- I have mapped f13 to my capslock key 
     vim.keymap.set("n", '<F13>f', function() vim.lsp.buf.format() end, opts)
     vim.keymap.set('n', 's', 'ci')
     vim.keymap.set('n', '<F13>', 'yi')
