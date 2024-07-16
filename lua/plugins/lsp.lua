@@ -7,7 +7,6 @@ local def_servers = {
   "lua_ls",
   "pyright",
   "bashls",
-
 }
 --servers to be manually configured
 local man_servers = {
