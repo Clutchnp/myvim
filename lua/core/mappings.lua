@@ -1,5 +1,5 @@
 -- Set mapleader to space
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 -- Define key mappings
 vim.keymap.set('n', "<leader>,", function() vim.cmd('NvimTreeToggle') end)
 vim.keymap.set('n', '<Leader>fd', function() vim.cmd('Telescope git_files') end)
