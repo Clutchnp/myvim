@@ -1,7 +1,7 @@
 -- Set mapleader to space
 vim.g.mapleader = " "
 -- Define key mappings
-vim.keymap.set('n', "<leader>,", function() vim.cmd('NvimTreeToggle') end)
+vim.keymap.set('n', "<leader>g", function() vim.cmd('NvimTreeToggle') end)
 vim.keymap.set('n', '<Leader>fd', function() vim.cmd('Telescope git_files') end)
 vim.keymap.set('n', '<Leader>fe', function() vim.cmd('Telescope find_files') end)
 vim.keymap.set('n', '<Leader>ff', function() vim.cmd('Telescope live_grep') end)
