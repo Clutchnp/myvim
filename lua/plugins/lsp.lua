@@ -10,7 +10,7 @@ local def_servers = {
 }
 --servers to be manually configured
 local man_servers = {
-  "rust_analyzer", "gopls", "texlab","typst_lsp"
+  "rust_analyzer", "gopls", "texlab","typst_lsp","hyprls"
 }
 --defining all server i.e. ones with defualt setup + manual setup eg. rust
 ---@diagnostic disable-next-line: deprecated
@@ -95,5 +95,12 @@ return {
         experimentalFormatterMode = "on"
       },
       })
+    lspconfig.hyprls.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      cmd = { "hyprls" },
+      pattern = {"*.hl","hypr*.conf"},
+      root_dir = vim.fn.getcwd(),
+    })
   end,
 }
