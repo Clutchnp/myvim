@@ -100,7 +100,7 @@ return {
       capabilities = capabilities,
       cmd = { "hyprls" },
       pattern = {"*.hl","hypr*.conf"},
-      root_dir = vim.fn.getcwd(),
+      root_dir = util.root_pattern(".git"),
     })
   end,
 }

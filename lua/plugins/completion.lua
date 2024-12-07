@@ -48,14 +48,9 @@ require("luasnip.loaders.from_vscode").lazy_load()
         { name = 'luasnip' },  -- For luasnip users.
         { name = 'buffer' },
         { name = 'path' },
+        { name = "supermaven" },
       })
     })
   end
-
-
-
-
-
-
 
 }
