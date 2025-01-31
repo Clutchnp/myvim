@@ -11,8 +11,10 @@ return {
     local cmp = require 'cmp'
 
 -- Load VS Code-style snippets
+    --
+require('luasnip').filetype_extend('markdown', { 'tex' })
 require("luasnip.loaders.from_vscode").lazy_load()
-
+require("plugins.snippets.markdown")
     cmp.setup({
       snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -48,7 +50,6 @@ require("luasnip.loaders.from_vscode").lazy_load()
         { name = 'luasnip' },  -- For luasnip users.
         { name = 'buffer' },
         { name = 'path' },
-        { name = "supermaven" },
       })
     })
   end

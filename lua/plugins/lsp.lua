@@ -95,6 +95,11 @@ return {
         experimentalFormatterMode = "on"
       },
       })
+  lspconfig.clangd.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
+      filetypes = {"c", "cpp"},
+    })
     lspconfig.hyprls.setup({
       on_attach = on_attach,
       capabilities = capabilities,

@@ -11,7 +11,7 @@ return {
         clear_suggestion = "<C-]>",
         accept_word = "<C-j>",
       },
-      ignore_filetypes = {"txt"} , -- or { "cpp", }
+      ignore_filetypes = {"txt", "markdown", "md"} , -- or { "cpp", }
       color = {
         suggestion_color = "#ffffff",
         cterm = 244,
