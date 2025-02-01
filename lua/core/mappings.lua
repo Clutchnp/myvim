@@ -31,6 +31,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     local opts = { buffer = e.buf, nowait = true }
     vim.keymap.set('n', 'K', function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set('n', 'gl', function() vim.lsp.buf.definition() end, opts)
+    vim.keymap.set('n', 'ga',  ":pop <CR>", opts)
     vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, opts)
     vim.keymap.set('n', '<leader>a', function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
