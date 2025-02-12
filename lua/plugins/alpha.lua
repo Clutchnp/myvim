@@ -35,7 +35,7 @@ dashboard.section.buttons.val = {
             dashboard.button("q", "󰗼   Quit", ":qa<CR>"),
         }
 
-        function centerText(text, width)
+        function CenterText(text, width)
             local totalPadding = width - #text
             local leftPadding = math.floor(totalPadding / 2)
             local rightPadding = totalPadding - leftPadding
@@ -43,13 +43,13 @@ dashboard.section.buttons.val = {
         end
 
         dashboard.section.footer.val = {
-            centerText("The Fable does not end as long as someone is still reading.", 50),
+            CenterText("The Fable does not end as long as someone is still reading.", 50),
             " ",
             -- centerText("NvimOnMy_Way❤️", 50),
             -- " ",
-            centerText(date, 50),
-            centerText(time, 50),
-            centerText(version, 50),
+            CenterText(date, 60),
+            CenterText(time, 60),
+            CenterText(version, 62),
         }
 
         -- Send config to alpha
