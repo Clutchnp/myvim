@@ -1,6 +1,6 @@
 # My Neovim Configuration
 
-![Description](2024-07-20_15-36_1.png)
+![Home_Image](intro_img_1.png)
 ![Description](2024-07-17_11-51.png)
 
 ** Note this repo is highly personalised you may have to change keybinding etc. according to your taste**
