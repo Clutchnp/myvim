@@ -10,7 +10,7 @@ local def_servers = {
 }
 --servers to be manually configured
 local man_servers = {
-  "rust_analyzer", "gopls", "texlab","typst_lsp","hyprls"
+  "rust_analyzer", "gopls", "texlab","tinymist","hyprls"
 }
 --defining all server i.e. ones with defualt setup + manual setup eg. rust
 ---@diagnostic disable-next-line: deprecated
@@ -87,13 +87,10 @@ return {
       filetypes = {"tex", "plaintex", "bib"},
     })
 
-    lspconfig.typst_lsp.setup({
+    lspconfig.tinymist.setup({
       on_attach = on_attach,
       capabilities = capabilities,
       root_dir = function(fname) return util.path.dirname(fname) end,
-      settings = {
-        experimentalFormatterMode = "on"
-      },
       })
   lspconfig.clangd.setup({
       on_attach = on_attach,
