@@ -7,6 +7,7 @@
   "cmp-path": { "branch": "main", "commit": "91ff86cd9c29299a64f968ebb45846c485725f23" },
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
   "friendly-snippets": { "branch": "main", "commit": "efff286dd74c22f731cdec26a70b46e5b203c619" },
+  "golf": { "branch": "main", "commit": "abf1bc0c1c4a5482b4a4b36b950b49aaa0f39e69" },
   "img-clip.nvim": { "branch": "main", "commit": "24c13df08e3fe66624bed5350a2a780f77f1f65b" },
   "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
   "lualine.nvim": { "branch": "master", "commit": "1517caa8fff05e4b4999857319d3b0609a7f57fa" },

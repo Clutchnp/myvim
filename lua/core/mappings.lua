@@ -7,11 +7,10 @@ vim.keymap.set('n', '<Leader>fe', function() vim.cmd('Telescope find_files') end
 vim.keymap.set('n', '<Leader>ff', function() vim.cmd('Telescope live_grep') end)
 vim.keymap.set('n', '<Leader>fl', function() vim.cmd('Telescope buffers') end)
 vim.keymap.set('n', '<Leader>fh', function() vim.cmd('Telescope help_tags') end)
-
-vim.keymap.set({ 'n', 'x' }, '<F13>j', 'J')
+vim.keymap.set('n', '<Leader>fk', function() vim.cmd('Telescope current_buffer_fuzzy_find') end)
 vim.keymap.set('x', '<F13>j', 'J')
 vim.keymap.set({ 'n', 'x' }, 'J', 'j')
-
+vim.keymap.set({ 'n', 'x' }, 'gh', '<C-o>')
 
 local augroup = vim.api.nvim_create_augroup
 local general = augroup('general', {})
