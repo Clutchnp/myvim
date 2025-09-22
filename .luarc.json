@@ -2,5 +2,8 @@
     "diagnostics.globals": [
         "vim",
         "def_servers"
+    ],
+    "diagnostics.disable": [
+        "unused-function"
     ]
 }
