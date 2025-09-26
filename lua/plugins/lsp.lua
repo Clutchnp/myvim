@@ -7,10 +7,12 @@ local def_servers = {
   "lua_ls",
   "pyright",
   "bashls",
+ 
+  "ts_ls",
 }
 --servers to be manually configured
 local man_servers = {
-  "rust_analyzer", "gopls", "texlab","tinymist","hyprls"
+  "rust_analyzer", "gopls", "texlab","tinymist","hyprls","volar"
 }
 --defining all server i.e. ones with defualt setup + manual setup eg. rust
 ---@diagnostic disable-next-line: deprecated
@@ -48,7 +50,10 @@ return {
       --lspconfig.lua_ls.setup({})
       --lspconfig.rust_analyzer.setup({})
       --lspconfig.bashls.setup({})
-    end
+    end 
+    -- why tf do I have to do this , why coundnt they just have kept the same damn name
+    table.insert(all_servers, "vue-language-server")
+
     local lspconfig = require("lspconfig")
     local util = require "lspconfig/util"
     lspconfig.rust_analyzer.setup({
@@ -103,6 +108,10 @@ return {
       cmd = { "hyprls" },
       pattern = {"*.hl","hypr*.conf"},
       root_dir = util.root_pattern(".git"),
+    })
+    lspconfig.volar.setup({
+      on_attach = on_attach,
+      capabilities = capabilities,
     })
   end,
 }
