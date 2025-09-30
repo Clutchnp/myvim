@@ -12,7 +12,7 @@ local def_servers = {
 }
 --servers to be manually configured
 local man_servers = {
-  "rust_analyzer", "gopls", "texlab","tinymist","hyprls","volar"
+  "rust_analyzer", "gopls", "texlab","tinymist","hyprls",
 }
 --defining all server i.e. ones with defualt setup + manual setup eg. rust
 ---@diagnostic disable-next-line: deprecated
@@ -52,7 +52,7 @@ return {
       --lspconfig.bashls.setup({})
     end 
     -- why tf do I have to do this , why coundnt they just have kept the same damn name
-    table.insert(all_servers, "vue-language-server")
+    table.insert(all_servers, "vue_ls")
 
     local lspconfig = require("lspconfig")
     local util = require "lspconfig/util"
