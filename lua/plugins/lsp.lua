@@ -7,7 +7,6 @@ local def_servers = {
   "lua_ls",
   "pyright",
   "bashls",
- 
   "ts_ls",
 }
 --servers to be manually configured
@@ -24,11 +23,9 @@ for _, manserver in ipairs(man_servers) do
 end
 -- defining setup fn for tables with default setups
 local lspsetup = function(server)
-  local lspconfig = require("lspconfig")
-  lspconfig[server].setup({
+  vim.lsp.config(server, {
     on_attach = on_attach,
     capabilities = capabilities,
-
   })
 end
 return {
@@ -52,66 +49,72 @@ return {
       --lspconfig.bashls.setup({})
     end 
     -- why tf do I have to do this , why coundnt they just have kept the same damn name
-    table.insert(all_servers, "vue_ls")
+table.insert(all_servers, "vue_ls")
 
-    local lspconfig = require("lspconfig")
-    local util = require "lspconfig/util"
-    lspconfig.rust_analyzer.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      filetypes = { "rust" },
-      root_dir = util.root_pattern("Cargo.toml"),
-      settings = {
-        ['rust_analyzer'] = {
-          cargo = {
-            allFeatures = true,
-          },
-        }
+local util = require("lspconfig/util")
 
-      }
-    })
-    lspconfig.gopls.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      cmd = { "gopls" },
-      filetypes = { "go", "gomod", "gowork", "gotmpl" },
-      root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-      settings = {
-        gopls = {
-          completeUnimported = true,
-          usePlaceholders = true,
-          analyses = {
-            unusedparams = true,
-          },
-        },
+vim.lsp.config("rust_analyzer", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "rust" },
+  root_dir = util.root_pattern("Cargo.toml"),
+  settings = {
+    ["rust_analyzer"] = {
+      cargo = {
+        allFeatures = true,
       },
-    })
-    lspconfig.texlab.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      filetypes = {"tex", "plaintex", "bib"},
-    })
+    },
+  },
+})
 
-    lspconfig.tinymist.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      root_dir = function(fname) return util.path.dirname(fname) end,
-      })
-  lspconfig.clangd.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      filetypes = {"c", "cpp"},
-    })
-    lspconfig.hyprls.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-      cmd = { "hyprls" },
-      pattern = {"*.hl","hypr*.conf"},
-      root_dir = util.root_pattern(".git"),
-    })
-    lspconfig.volar.setup({
-      on_attach = on_attach,
-      capabilities = capabilities,
-    })
+vim.lsp.config("gopls", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+    },
+  },
+})
+
+vim.lsp.config("texlab", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "tex", "plaintex", "bib" },
+})
+
+vim.lsp.config("tinymist", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  root_dir = function(fname)
+    return util.path.dirname(fname)
   end,
+})
+
+vim.lsp.config("clangd", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "c", "cpp" },
+})
+
+vim.lsp.config("hyprls", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "hyprls" },
+  pattern = { "*.hl", "hypr*.conf" },
+  root_dir = util.root_pattern(".git"),
+})
+
+vim.lsp.config("volar", {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+end
 }
