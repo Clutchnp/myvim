@@ -1,120 +1,39 @@
---servers with default setups
-local on_attach = function(_, bufnr)
-  return { buffer = bufnr }
-end
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-local def_servers = {
-  "lua_ls",
-  "pyright",
-  "bashls",
-  "ts_ls",
+local capabilities = {
+  textDocument = {
+    foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true
+    }
+  }
 }
---servers to be manually configured
-local man_servers = {
-  "rust_analyzer", "gopls", "texlab","tinymist","hyprls",
-}
---defining all server i.e. ones with defualt setup + manual setup eg. rust
----@diagnostic disable-next-line: deprecated
-local all_servers = { unpack(def_servers) }
 
---add man_servers to def_servers
-for _, manserver in ipairs(man_servers) do
-  table.insert(all_servers, manserver)
-end
--- defining setup fn for tables with default setups
-local lspsetup = function(server)
-  vim.lsp.config(server, {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  })
-end
+capabilities = require('blink.cmp').get_lsp_capabilities(capabilities)
+
+local lsps = {
+    { "rust_analyzer" },
+    { "gopls" },
+    { "ts_ls" },
+    { "cssls" },
+    { "lua_ls" },
+    { "hls" },
+    {"clangd"},
+}
+
 return {
   "neovim/nvim-lspconfig",
-  dependencies = {
+dependencies = {
     "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig",
+    "williamboman/mason-lspconfig.nvim", -- note `.nvim`
   },
-
   config = function()
     require("mason").setup()
-    require("mason-lspconfig").setup({
-      ensure_installed = all_servers
-    })
-
-    --calling the setup fn
-    for _, server in ipairs(def_servers) do
-      lspsetup(server)
-      --lspconfig.lua_ls.setup({})
-      --lspconfig.rust_analyzer.setup({})
-      --lspconfig.bashls.setup({})
-    end 
-    -- why tf do I have to do this , why coundnt they just have kept the same damn name
-table.insert(all_servers, "vue_ls")
-
-local util = require("lspconfig/util")
-
-vim.lsp.config("rust_analyzer", {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "rust" },
-  root_dir = util.root_pattern("Cargo.toml"),
-  settings = {
-    ["rust_analyzer"] = {
-      cargo = {
-        allFeatures = true,
-      },
-    },
-  },
-})
-
-vim.lsp.config("gopls", {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { "gopls" },
-  filetypes = { "go", "gomod", "gowork", "gotmpl" },
-  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-  settings = {
-    gopls = {
-      completeUnimported = true,
-      usePlaceholders = true,
-      analyses = {
-        unusedparams = true,
-      },
-    },
-  },
-})
-
-vim.lsp.config("texlab", {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "tex", "plaintex", "bib" },
-})
-
-vim.lsp.config("tinymist", {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  root_dir = function(fname)
-    return util.path.dirname(fname)
-  end,
-})
-
-vim.lsp.config("clangd", {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  filetypes = { "c", "cpp" },
-})
-
-vim.lsp.config("hyprls", {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = { "hyprls" },
-  pattern = { "*.hl", "hypr*.conf" },
-  root_dir = util.root_pattern(".git"),
-})
-
-vim.lsp.config("volar", {
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
+    require("mason-lspconfig").setup({})
+for _, lsp in pairs(lsps) do
+    local name, config = lsp[1], lsp[2]
+    vim.lsp.enable(name)
+    if config then
+        vim.lsp.config(name, config)
+    end
+  end
 end
 }

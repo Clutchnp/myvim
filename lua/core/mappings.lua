@@ -47,7 +47,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", 'zf', function() vim.lsp.buf.format() end, opts)
     vim.keymap.set("n", "<Leader>bb", ':b#<CR>')
     vim.keymap.set('n', 's', 'ci')
-    vim.keymap.set('n', '<C-k>', ':wincmd k<CR>')
+    vim.keymap.set('n', '<C-k>', 'wincmd k<CR>')
     vim.keymap.set('n', '<C-j>', ':wincmd j<CR>')
     vim.keymap.set('n', '<C-h>', ':wincmd h<CR>')
     vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
@@ -56,3 +56,4 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set({ "n", "v" }, "<leader>p", function() vim.cmd("PasteImage") end, opts)
   end
 })
+
