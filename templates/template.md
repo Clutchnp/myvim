@@ -1,29 +1,38 @@
-# Name
+# 1. Challenge name
 
-
+> Put in the challenge's description here
 
 ## Solution:
 
-- 
-- 
-- 
-
-```sh
-$ cat flag
-```
-
-## Flag: 
+- Include as many steps as you can with your thought process
+- You **must** include images such as screenshots wherever relevant.
 
 ```
-pwn.college{ }
+put codes & terminal outputs here using triple backticks
+
+you may also use ```python for python codes for example
 ```
 
+## Flag:
 
-### References:
+```
+picoCTF{}
+```
 
-- [link 1](https://pwn.college)
+## Concepts learnt:
+
+- Include the new topics you've come across and explain them in brief
 - 
-### Notes:
 
-Include things you learnt, alternate methods or mistakes you made while solving
+## Notes:
+
+- Include any alternate tangents you went on while solving the challenge, including mistakes & other solutions you found.
+- 
+
+## Resources:
+
+- Include the resources you've referred to with links. [example hyperlink](https://google.com)
+
+
+***
 
