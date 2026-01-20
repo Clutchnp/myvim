@@ -1,11 +1,8 @@
 return {
-  name = "shellsplit",
-  dir = "~/.local/share/nvim/lazy/shellsplit/",
-  cmd = "Shell",
+  'Clutchnp/splitcmd',
   keys = {
     { "<leader>ts", desc = "Run shell command in split" },
   },
-  config = function ()
-  require("shellsplit").setup{}
-  end
+  config = true,
+  opts = {}
 }
