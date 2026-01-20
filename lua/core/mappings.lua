@@ -40,7 +40,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'gl', function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set('n', 'ga', ":pop <CR>", opts)
     vim.keymap.set('n', 'gr', function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set('n', '<leader>a', function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set('n', '<leader>j', function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "[e", function() vim.diagnostic.goto_next({severity = vim.diagnostic.severity.ERROR}) end, opts)
     vim.keymap.set("n", "]e>", function() vim.diagnostic.goto_prev({severity = vim.diagnostic.severity.ERROR}) end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
@@ -56,6 +56,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
     vim.keymap.set('n', '<F13>', 'yi')
     vim.keymap.set({ "n", "v" }, "<leader>p", function() vim.cmd("PasteImage") end, opts)
+    vim.keymap.set('n', "<leader>tt","<CMD>FloatermToggle<CR>")
   end
 })
 
