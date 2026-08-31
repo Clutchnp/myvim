@@ -11,6 +11,30 @@ vim.keymap.set('n', '<Leader>fh', function() vim.cmd('Telescope help_tags') end)
 vim.keymap.set('n', '<Leader>fk', function() vim.cmd('Telescope current_buffer_fuzzy_find') end)
   --Neogit
 vim.keymap.set('n', 'gp', function() vim.cmd("Neogit kind=floating") end)
+vim.keymap.set("n", "<Leader>bb", ':b#<CR>')
+vim.keymap.set('n', 's', 'ci')
+vim.keymap.set('n', '<C-k>', ':wincmd k<CR>')
+vim.keymap.set('n', '<C-j>', ':wincmd j<CR>')
+vim.keymap.set('n', '<C-h>', ':wincmd h<CR>')
+vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
+vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+vim.keymap.set('n', '<F13>', 'yi')
+vim.keymap.set({ "n", "v" }, "<leader>p", function() vim.cmd("PasteImage") end, opts)
+vim.keymap.set('n', "<leader>tt","<CMD>FloatermToggle<CR>")
+vim.keymap.set('n', 'g1', function() require('bufferline').go_to_buffer(1, true) end)
+vim.keymap.set('n', 'g2', function() require('bufferline').go_to_buffer(2, true) end)
+vim.keymap.set('n', 'g3', function() require('bufferline').go_to_buffer(3, true) end)
+vim.keymap.set('n', 'g4', function() require('bufferline').go_to_buffer(4, true) end)
+vim.keymap.set('n', 'g5', function() require('bufferline').go_to_buffer(5, true) end)
+vim.keymap.set('n', 'g6', function() require('bufferline').go_to_buffer(6, true) end)
+vim.keymap.set('n', 'g7', function() require('bufferline').go_to_buffer(7, true) end)
+vim.keymap.set('n', 'g8', function() require('bufferline').go_to_buffer(8, true) end)
+vim.keymap.set('n', 'g9', function() require('bufferline').go_to_buffer(9, true) end)
+vim.keymap.set('n', 'g0', function() require('bufferline').go_to_buffer(10, true) end)
+vim.keymap.set('n', '<M-j>', '<cmd>BufferLineCyclePrev<CR>') -- Alt+j to move to left
+vim.keymap.set('n', '<M-k>', '<cmd>BufferLineCycleNext<CR>') -- Alt+k to move to right
+vim.keymap.set('n', '<M-J>', '<cmd>BufferLineMovePrev<CR>') -- Alt+Shift+j grab to with you to left
+vim.keymap.set('n', '<M-K>', '<cmd>BufferLineMoveNext<CR>') -- Alt+Shift+k grab to with you to right
 
   --harpoon
   -- Harpoon will make me use global vars for setting keybinds in this file so its in harpoon.lua itself
@@ -46,31 +70,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
     vim.keymap.set("n", "]d>", function() vim.diagnostic.goto_prev() end, opts)
     -- I have mapped f13 to my capslock key
-    vim.keymap.set("n", 'zf', function() vim.lsp.buf.format() end, opts)
-    vim.keymap.set("n", "<Leader>bb", ':b#<CR>')
-    vim.keymap.set('n', 's', 'ci')
-    vim.keymap.set('n', '<C-k>', ':wincmd k<CR>')
-    vim.keymap.set('n', '<C-j>', ':wincmd j<CR>')
-    vim.keymap.set('n', '<C-h>', ':wincmd h<CR>')
-    vim.keymap.set('n', '<C-l>', ':wincmd l<CR>')
-    vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
-    vim.keymap.set('n', '<F13>', 'yi')
-    vim.keymap.set({ "n", "v" }, "<leader>p", function() vim.cmd("PasteImage") end, opts)
-    vim.keymap.set('n', "<leader>tt","<CMD>FloatermToggle<CR>")
-    vim.keymap.set('n', 'g1', function() require('bufferline').go_to_buffer(1, true) end)
-    vim.keymap.set('n', 'g2', function() require('bufferline').go_to_buffer(2, true) end)
-    vim.keymap.set('n', 'g3', function() require('bufferline').go_to_buffer(3, true) end)
-    vim.keymap.set('n', 'g4', function() require('bufferline').go_to_buffer(4, true) end)
-    vim.keymap.set('n', 'g5', function() require('bufferline').go_to_buffer(5, true) end)
-    vim.keymap.set('n', 'g6', function() require('bufferline').go_to_buffer(6, true) end)
-    vim.keymap.set('n', 'g7', function() require('bufferline').go_to_buffer(7, true) end)
-    vim.keymap.set('n', 'g8', function() require('bufferline').go_to_buffer(8, true) end)
-    vim.keymap.set('n', 'g9', function() require('bufferline').go_to_buffer(9, true) end)
-    vim.keymap.set('n', 'g0', function() require('bufferline').go_to_buffer(10, true) end)
-    vim.keymap.set('n', '<M-j>', '<cmd>BufferLineCyclePrev<CR>') -- Alt+j to move to left
-    vim.keymap.set('n', '<M-k>', '<cmd>BufferLineCycleNext<CR>') -- Alt+k to move to right
-    vim.keymap.set('n', '<M-J>', '<cmd>BufferLineMovePrev<CR>') -- Alt+Shift+j grab to with you to left
-    vim.keymap.set('n', '<M-K>', '<cmd>BufferLineMoveNext<CR>') -- Alt+Shift+k grab to with you to right
+    vim.keymap.set("n", 'z<Tab>', function() vim.lsp.buf.format() end, opts)
   end
 })
 
