@@ -1,0 +1,5 @@
+*.bak
+./templates/*
+./lua/plugins/template_picker/*
+
+
